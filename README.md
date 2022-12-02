@@ -18,6 +18,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 O NFT é um site que compra e vende NFTS.
 
-## 😀 Contato
+## Contato
 
 wjuniorsantana@gmail.com
