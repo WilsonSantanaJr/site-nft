@@ -1,0 +1,698 @@
+/*======= RESET ============================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2 {
+    font-family: 'Play', sans-serif;
+}
+
+p {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/*======= VARIABLES ============================*/
+:root {
+    /* colors */
+    --body-color: rgb(20 12 31);
+    --color-white: rgb(255 255 255);
+    --color-hover-nav: rgb(173 26 175);
+    --color-secondary: rgb(173 26 175);
+    --bg-card-color: rgb(40 32 50);
+
+    /* colors button */
+    --color-button: rgb(173 26 175);
+    --background-button: rgb(173 26 175 0);
+
+    --color-button-hover: rgb(255 255 255);
+    --background-button-hover: rgb(173 26 175);
+
+    /* colors copyright */
+    --copyright-bg-color: rgb(65 31 74);
+
+    /* fonts */
+    --color-paragraph: rgb(207 205 209);
+}
+
+/*======= base ============================*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--body-color);
+}
+
+.section {
+    padding-bottom: 8rem;
+}
+
+.section .title {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.button {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 3.125rem;
+    padding: 0 2rem;
+    gap: 0.5rem;
+
+    color: var(--color-button);
+    border: 1px solid var(--color-button);
+
+    background: var(--background-button);
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--color-button-hover);
+    border: 1px solid var(--background-button-hover);
+    background: var(--background-button-hover);
+}
+
+.button:hover path {
+    fill: var(--color-white); 
+}
+
+.to-hide {
+    display: none;
+}
+
+.wrapper {
+    margin-inline: auto;
+}
+
+/* === MENU-EXPANDED ===================================== */
+body.menu-expanded {
+    overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+    visibility: hidden;
+}
+
+.menu, 
+.close-menu,
+body.menu-expanded .open-menu {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.menu-expanded .menu,
+nav .social-links,
+body.menu-expanded .close-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu {
+    transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+    display: flex;
+    flex-direction: column;
+    top: 25%;
+    left: 0;
+
+    width: 100vw;
+    height: 65vh;
+
+    transition: transform 300ms;
+    transform: translateY(0);
+}
+
+body.menu-expanded .logo,
+body.menu-expanded nav button {
+    flex-direction: columns;
+    position: relative;
+    z-index: 10;
+}
+
+body.menu-expanded button path {
+    stroke: white;
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll {
+    background: var(--color-white);
+}
+
+nav.scroll {
+    fill: white;
+}
+
+nav.scroll button path {
+    stroke: white;
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav .menu,
+nav .close-menu {
+    position: fixed;
+}
+
+/*======= navigation ============================*/
+header {
+    padding-bottom: 3.6rem;
+}
+
+nav {
+    height: 3.3rem;
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65%;
+}
+
+nav ul li a {
+    color: var(--color-white);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: var(--color-hover-nav);
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+}
+
+nav .menu ul {
+    display: flex;
+    gap: 2rem;
+}
+
+nav .social-links {
+    display: flex;
+    gap: 2rem;
+}
+
+nav .icon-menu {
+    display: none;
+}
+
+nav .icon-close {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -1.5rem;
+    right: 1.5rem;
+    transition: 0.2s;
+}
+
+/*======= home ============================*/
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15rem;
+}
+
+.home .text {
+    color: var(--color-white);
+}
+
+.home .text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.home .text p {
+    margin-bottom: 1.8rem;
+}
+
+.home .text div {
+    display: flex;
+    gap: 2rem;
+}
+
+/*======= top-collections ============================*/
+.ellipse {
+    position: absolute;
+    z-index: -1;
+}
+
+.top-collections header {
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.top-collections header p {
+    font-size: 1rem;
+    background: #FFFFFF;
+    background: linear-gradient(to right, #FFFFFF 45%, #AD1AAF 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+.top-collections header h2 {
+    font-size: 2.5rem;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.c-carousel-slide {
+    padding: 0 10px;
+}
+
+div.button-go-to-ranking {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/*======= categories ============================*/
+.categories header p {
+    font-size: 1rem;
+    color: var(--color-white);
+}
+
+.categories header h2 {
+    font-size: 2.5rem;
+    color: var(--color-white);
+}
+
+.filter-btn-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-filter {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.1rem;
+}
+
+div.filter-container {
+    display: flex;
+    gap: 1.5rem;
+    row-gap: 1.6rem;
+}
+
+.active,
+.active path {
+    color: var(--color-button-hover);
+    border: 1px solid var(--background-button-hover);
+    background: var(--background-button-hover);
+    fill: var(--color-button-hover);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    row-gap: 2.4rem;
+}
+
+.card-categories {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: var(--bg-card-color);
+    border-radius: 10px;
+}
+
+.img-card-categories {
+    position: relative;
+}
+
+.likes {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 0.5rem;
+    padding: 7px;
+    border-radius: 0px 10px;
+    background: rgba(169, 169, 169, 0.3);
+    cursor: pointer;
+}
+
+.card-id {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.id-avatar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.card-categories h3 {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.card-categories p {
+    color: var(--color-paragraph);
+}
+
+.card-id a {
+    color: var(--color-white);
+}
+
+.button-categorie {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+}
+
+.button-categorie a {
+    width: 100%;
+}
+
+/*======= cearte-sell ============================*/
+.cearte-sell header {
+    font-size: 2.5rem;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.cearte-sell-your-nfts {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    gap: 4.1rem;
+}
+
+.line01,
+.line02,
+.line03 {
+    position: absolute;
+    top: 20%;
+    z-index: -5;
+}
+
+.line01 {
+    left: 17%;
+}
+
+.line02 {
+    left: 44%;
+}
+
+.line03 {
+    left: 70%;
+}
+
+
+.cearte-sell-your-nfts img {
+   margin-bottom: 1.5rem;
+}
+
+.cearte-sell-your-nfts h3 {
+    color: var(--color-white);
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 0.9rem;
+}
+
+.cearte-sell-your-nfts p {
+    color: var(--color-paragraph);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/*======= email ============================*/
+.email header p {
+    max-width: 601px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-white);
+    font-family: 'Play';
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.email form {
+    display: flex;
+    padding: 0 auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.email form button {
+    position: absolute;
+    left: 63%;
+    background: transparent;
+    border: none; 
+}
+
+.email input {
+    width: 31.5rem;
+    height: 70px;
+    padding: 12px;
+    color: var(--color-paragraph);
+    background: var(--background-button);
+    border: 1px solid var(--color-secondary);
+    border-radius: 10px;
+}
+
+.email input:focus {
+    border: 1px solid var(--color-secondary);
+}
+
+/*======= footer ============================*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+}
+
+.footer .menu-footer {
+    width: 20%;
+}
+
+div.text-footer {
+    width: 60%;
+}
+
+div.text-footer img {
+    margin-bottom: 0.8rem;
+}
+
+div.text-footer p {
+    color: var(--color-paragraph);
+    margin-bottom: 1.25rem;
+}
+
+.links-social-networks {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer div h2 {
+    color: var(--color-white);
+    font-size: 1.25rem;
+    margin-bottom: 2.8rem;
+}
+
+.footer div ul li a {
+    line-height: 2.25rem;
+    color: var(--color-paragraph);
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    background: var(--copyright-bg-color);
+    margin-top: 5rem;
+}
+
+.copyright p {
+    color: var(--color-white);
+    padding: 27px 0;
+}
+
+/* === RESPONSIVO ===================================== */
+@media (min-width: 1024px) {
+    /* reset */
+    nav#navigation .wrapper * {
+        visibility: initial;
+        opacity: initial;
+        position: initial;
+        transform: initial;
+    }
+
+    nav#navigation .close-menu,
+    nav#navigation .open-menu {
+        display: none;
+    }
+
+    body.menu-expanded .menu {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        top: 25%;
+        left: 0;
+    
+        width: 100vw;
+        height: 70vh;
+    
+        transition: transform 300ms;
+        transform: translateY(0);
+    }
+    
+}
+
+@media (max-width: 1024px) {
+
+    .cearte-sell-your-nfts {
+        flex-direction: column;
+        position: none;
+    }
+
+    .to-hide-mobile {
+        display: none;
+    }
+
+    .to-hide {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .line01, .line02, .line03 {
+        display: none;
+    }
+
+    .ellipse {
+        display: none;
+    }
+
+    /* Menu */
+    nav .menu ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 3.8rem;
+        font-weight: 700;
+        line-height: 1.1rem;
+    }
+
+    nav#navigation .menu {
+        width: 100%;
+    }
+
+    /* Home */
+    .home {
+        justify-content: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        gap: 15rem;
+    }
+    
+    .home .text h2 {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    div.text p {
+        text-align: center;
+    }
+
+    .home .text p {
+        text-align: center;
+    }
+
+    .home .text div {
+        flex-direction: column;
+    }
+    
+    .home .image {
+        display: none;
+    }
+
+    /* top-collections */
+    .mobile-top-collections {
+        display: flex;
+        flex-wrap: wrap;
+        algin-items: center;
+        gap: 1.25rem;
+    }
+
+    .mobile-top-collections img {
+        align-items: center;
+    }
+
+    /* categories */
+    .categories header p {
+        text-align: center;
+    }
+
+    .categories header h2 {
+        text-align: center;
+    }
+
+    /* cearte-sell */
+
+    /* email */
+    .email form button {
+        position: absolute;
+        left: 85%;
+    }
+
+    /* Footer */
+    div.menu-footer {
+        display: none;
+    }
+
+    .footer div.menu-footer {
+        display: none;
+    }
+}
