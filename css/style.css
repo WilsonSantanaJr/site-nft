@@ -53,6 +53,7 @@ html {
 }
 
 body {
+    font-family: open-sans;
     background: var(--body-color);
 }
 
@@ -184,6 +185,7 @@ nav .close-menu {
 
 /*======= navigation ============================*/
 header {
+    padding-top: 1.8rem;
     padding-bottom: 3.6rem;
 }
 
@@ -531,6 +533,11 @@ div.text-footer p {
     gap: 1.25rem;
 }
 
+.links-social-networks a {
+    color: var(--color-white);
+    font-size: 20px;
+}
+
 .footer div h2 {
     color: var(--color-white);
     font-size: 1.25rem;
@@ -662,7 +669,6 @@ div.text-footer p {
     .mobile-top-collections {
         display: flex;
         flex-wrap: wrap;
-        algin-items: center;
         gap: 1.25rem;
     }
 
@@ -682,9 +688,13 @@ div.text-footer p {
     /* cearte-sell */
 
     /* email */
-    .email form button {
+    .email input {
+        width: 100vw;
+    }
+
+    section.email form button {
         position: absolute;
-        left: 85%;
+        right: 0;
     }
 
     /* Footer */
