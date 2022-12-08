@@ -53,7 +53,7 @@ html {
 }
 
 body {
-    font-family: open-sans;
+    font-family: 'Open Sans', sans-serif;
     background: var(--body-color);
 }
 
